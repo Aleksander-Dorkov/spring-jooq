@@ -1,0 +1,21 @@
+spring:
+  docker:
+    compose:
+      enabled: true
+      file: compose.yaml
+      lifecycle-management: start_only
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/university
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    schemas: public
+    locations: classpath:/migrations
+    table: flyway_migrations
+    baseline-on-migrate: true
+  jooq:
+    sql-dialect: postgres
+  threads:
+    virtual:
+      enabled: true
